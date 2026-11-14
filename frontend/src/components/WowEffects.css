@@ -1,0 +1,181 @@
+/* ==========================================================================
+   WOW Decorative React Effects (Spotlight, Aurora Orbs, Border Beam, Marquee)
+   ========================================================================== */
+
+.wow-spotlight-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  --mx: 50vw;
+  --my: 30vh;
+}
+
+.wow-cursor-glow {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  left: var(--mx);
+  top: var(--my);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(113, 44, 249, 0.16) 0%,
+    rgba(13, 202, 240, 0.09) 38%,
+    transparent 70%
+  );
+  filter: blur(24px);
+  transition: left 0.08s ease-out, top 0.08s ease-out;
+}
+
+:root:not([data-theme='dark']) .wow-cursor-glow {
+  background: radial-gradient(
+    circle,
+    rgba(113, 44, 249, 0.11) 0%,
+    rgba(13, 202, 240, 0.06) 40%,
+    transparent 70%
+  );
+}
+
+/* Floating Decorative Ambient Aurora Orbs */
+.wow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  opacity: 0.26;
+  animation: wow-orb-float 16s ease-in-out infinite alternate;
+}
+
+:root:not([data-theme='dark']) .wow-orb {
+  opacity: 0.15;
+}
+
+.wow-orb-1 {
+  width: 340px;
+  height: 340px;
+  top: 6%;
+  left: 8%;
+  background: linear-gradient(135deg, #712cf9, #ff9ffc);
+}
+
+.wow-orb-2 {
+  width: 300px;
+  height: 300px;
+  bottom: 10%;
+  right: 8%;
+  background: linear-gradient(135deg, #0dcaf0, #5227ff);
+  animation-delay: -5s;
+}
+
+.wow-orb-3 {
+  width: 240px;
+  height: 240px;
+  top: 48%;
+  left: 45%;
+  background: linear-gradient(135deg, #d63384, #0dcaf0);
+  animation-delay: -10s;
+}
+
+@keyframes wow-orb-float {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(35px, -28px, 0) scale(1.12); }
+  100% { transform: translate3d(-25px, 24px, 0) scale(0.94); }
+}
+
+/* Magnetic Button Spring Transition */
+.wow-magnetic {
+  display: inline-flex;
+  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.wow-decrypted {
+  cursor: pointer;
+}
+
+/* Handcrafted Card Surface & Subtle Elevation */
+.wow-border-beam {
+  position: relative;
+  background-clip: padding-box;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.wow-border-beam:hover {
+  border-color: var(--line-2);
+}
+
+/* Clean Editor Container (no distracting laser sweep) */
+.wow-laser-scan {
+  position: relative;
+}
+
+/* Feature Ticker Strip */
+.wow-marquee-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 8px 0;
+  margin: 6px 0 14px;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.wow-marquee-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: wow-marquee-scroll 34s linear infinite;
+}
+
+.wow-marquee-wrap:hover .wow-marquee-track {
+  animation-play-state: paused;
+}
+
+.wow-marquee-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.wow-marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+}
+
+@keyframes wow-marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Locked Protected Route Emblem */
+.locked-icon-ring {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
+  color: var(--sev-critical);
+  background: color-mix(in srgb, var(--sev-critical) 14%, var(--surface-2));
+  border: 1px solid color-mix(in srgb, var(--sev-critical) 40%, transparent);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--sev-critical) 28%, transparent);
+  animation: wow-lock-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes wow-lock-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.07); }
+}

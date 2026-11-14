@@ -1,0 +1,54 @@
+/* Design tokens. Light = photocopied paper, dark = night desk. Redaction bars use --ink on --bg. */
+:root {
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --bg: #eceef2;
+  --surface: #ffffff;
+  --surface-2: #f5f6f9;
+  --ink: #12151b;
+  --ink-soft: #2a303b;
+  --muted: #5c6472;
+  --line: #d8dce4;
+  --line-strong: #b9bfcb;
+  --accent: #2c46f0;
+  --accent-soft: #e6eaff;
+  --on-ink: #ffffff;
+
+  --sev-critical: #d42b1e;
+  --sev-high: #d9650a;
+  --sev-medium: #b88a00;
+  --sev-low: #3466d6;
+  --safe: #178a5f;
+
+  --shadow: 0 1px 2px rgb(18 21 27 / 6%), 0 8px 24px -12px rgb(18 21 27 / 14%);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --logo-bar: #ffffff;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0c0e12;
+  --surface: #14171e;
+  --surface-2: #1a1e27;
+  --ink: #eceef3;
+  --ink-soft: #c9cfda;
+  --muted: #98a1b0;
+  --line: #262b36;
+  --line-strong: #3a4150;
+  --accent: #8ba0ff;
+  --accent-soft: #1d2442;
+  --on-ink: #0c0e12;
+
+  --sev-critical: #ff6b5e;
+  --sev-high: #ff9a4d;
+  --sev-medium: #f2c94c;
+  --sev-low: #7da2ff;
+  --safe: #3dd6a0;
+
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 10px 30px -14px rgb(0 0 0 / 60%);
+  --logo-bar: #0c0e12;
+  color-scheme: dark;
+}

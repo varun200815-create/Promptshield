@@ -1,0 +1,39 @@
+.js-tilt {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.js-tilt-glare {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 2;
+}
+
+.js-tilt-glare-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220%;
+  height: 220%;
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  transform: rotate(180deg) translate(-50%, -50%);
+  transform-origin: 0% 0%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tilt-pop {
+  transform: translateZ(26px);
+  transform-style: preserve-3d;
+}
+
+.tilt-pop-sm {
+  transform: translateZ(16px);
+  transform-style: preserve-3d;
+}

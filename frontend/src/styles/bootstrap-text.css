@@ -1,0 +1,198 @@
+/* ==========================================================================
+   Bootstrap (twbs/bootstrap v5.3) Typography, Text Utilities & Effects
+   ========================================================================== */
+
+:root {
+  --bs-indigo: #4f46e5;
+  --bs-purple: #4338ca;
+  --bs-violet: #6366f1;
+  --bs-pink: #e11d48;
+  --bs-cyan: #0284c7;
+  --bs-teal: #10b981;
+  --bs-primary-rgb: 99, 102, 241;
+  --bs-info-rgb: 14, 165, 233;
+  --bs-gradient-text: linear-gradient(180deg, #ffffff 0%, #d4d8e2 100%);
+  --bs-gradient-accent: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+}
+
+:root:not([data-theme='dark']) {
+  --bs-gradient-text: linear-gradient(180deg, #0f172a 0%, #334155 100%);
+  --bs-gradient-accent: linear-gradient(180deg, #0f172a 0%, #334155 100%);
+}
+
+/* Bootstrap RFS Display Headings */
+.bs-display-1 {
+  font-size: clamp(2.5rem, calc(1.5rem + 3vw), 4.25rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.038em;
+}
+
+.bs-display-4 {
+  font-size: clamp(1.6rem, calc(1.35rem + 1.3vw), 2.35rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+/* Editorial Subtle Metallic Text */
+.bs-text-gradient {
+  color: var(--ink);
+}
+
+.bs-text-shimmer {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+@keyframes bs-gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes bs-shimmer-slide {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Bootstrap <mark> / .mark Inline Keyword Highlight */
+.bs-mark {
+  padding: 0.12em 0.42em;
+  border-radius: 0.375rem;
+  background: rgba(var(--bs-primary-rgb), 0.16);
+  border: 1px solid rgba(var(--bs-primary-rgb), 0.34);
+  color: var(--ink);
+  font-weight: 600;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
+}
+
+.bs-mark:hover {
+  transform: translateY(-2px);
+  background: rgba(var(--bs-primary-rgb), 0.28);
+  box-shadow: 0 4px 14px rgba(var(--bs-primary-rgb), 0.28);
+}
+
+/* Bootstrap Glowing Eyebrow / Badge Pill (.badge .rounded-pill .text-bg-primary) */
+.bs-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.38rem 0.85rem;
+  margin-bottom: 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-radius: 50rem;
+  color: var(--ink);
+  background: linear-gradient(90deg, rgba(113, 44, 249, 0.18), rgba(13, 202, 240, 0.14));
+  border: 1px solid rgba(113, 44, 249, 0.38);
+  box-shadow: 0 2px 12px rgba(113, 44, 249, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bs-eyebrow-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 18px rgba(113, 44, 249, 0.3);
+}
+
+.bs-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0dcaf0;
+  box-shadow: 0 0 8px #0dcaf0;
+  animation: bs-pulse-dot 2s infinite;
+}
+
+@keyframes bs-pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.35); opacity: 0.65; }
+}
+
+/* Bootstrap Link Underline Animation (.link-underline-primary) */
+.bs-link-fx {
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bs-link-fx::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #712cf9, #0dcaf0);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bs-link-fx:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.bs-link-fx:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Bootstrap Interactive Heading Hover Glow & Underline Accent */
+.bs-heading-fx {
+  position: relative;
+  display: inline-block;
+  transition: text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.bs-heading-fx:hover {
+  text-shadow: 0 0 28px rgba(113, 44, 249, 0.35);
+}
+
+/* Card Title Hover Color Shift */
+.steps li:hover h3,
+.cat:hover h3,
+.flow-node:hover b {
+  background: linear-gradient(90deg, var(--ink) 0%, #a78bfa 60%, #0dcaf0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.25s ease;
+}
+
+.flow-node.you:hover b {
+  background: linear-gradient(90deg, var(--on-ink) 0%, #c4b5fd 60%, #0dcaf0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Stat / Counter Number Glow (Bootstrap .display-6 tabular) */
+.bs-stat-num {
+  background: linear-gradient(135deg, var(--ink) 20%, #8ba0ff 70%, #0dcaf0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  transition: filter 0.25s ease;
+}
+
+.bs-stat-num:hover {
+  filter: drop-shadow(0 0 10px rgba(113, 44, 249, 0.45));
+}
+
+/* CTA Banner Inverse Shimmer Text */
+.bs-cta-title {
+  background: linear-gradient(135deg, var(--on-ink) 0%, #c4b5fd 55%, #0dcaf0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: bs-gradient-flow 6s ease infinite;
+}
